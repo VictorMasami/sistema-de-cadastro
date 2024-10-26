@@ -1,39 +1,63 @@
-////////////////////////////////////////////////////////////////////////
-////////////////// FAÇA O SEU CÓDIGO AQUI \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-////////////////////////////////////////////////////////////////////////
-
 class Aluno {
-  
+  Nome
+  Idade
+  Nota
+  constructor(nome, idade, nota) {
+    this.Nome = nome
+    this.Idade = idade
+    this.Nota = nota
+  }
 }
 
-// Array
+let arrayAlunos = [];
 
-
-//funções projeto
-
-function CadastrarAluno() {
-  
+function CadastrarAluno(nome, idade, nota, array) {
+  let objetoAluno = new aluno(nome, idade, nota)
+  if (!arrayAlunos.some(x => x.Nome == nome)) {
+    arrayAlunos.push(objetoAluno)
+    return objetoAluno
+  }
 }
 
 function OrdenarPorNota() {
- 
+ array.sort((a, b)=> a.Nota - b.Nota)
+ return array;
 }
 
 function OrdenarPorIdade() {
-
+  array.sort((a, b) => a.Idade - b.Idade)
+  return array;
 }
 
 function OrdenarPorNome() {
+  array.sort((a, b) => {
+    const nomeA = a.Nome.toUpperCase(); 
+    const nomeB = b.Nome.toUpperCase();
 
+    if (nomeA < nomeB) {
+      return -1;
+    }
+    if (nomeA > nomeB) {
+      return 1;
+    }
+    return 0;
+  });
+  return array;
 }
+  
 
 function CalcularMedia(){
+  if (array.length === 0) {
+    return 0;
+  }
+  let somaNotas = 0;
+  array.forEach(aluno => {
+    somaNotas += Number (aluno.Nota);
+  });
 
+  const media = somaNotas / array.length;
+  return media;
 }
-
-////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////
 
 function ExcluirAluno(array, nome) {
   let index
